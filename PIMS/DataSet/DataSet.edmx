@@ -1,0 +1,271 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PIMS_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Table_add_new_medchin">
+          <Key>
+            <PropertyRef Name="Itemcode" />
+          </Key>
+          <Property Name="Itemname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Itemcode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Itemsize" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Itembrand" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Itamsupplier" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Itembarcode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="others" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Itemquantity" Type="int" Nullable="false" />
+          <Property Name="Totalquantity" Type="int" Nullable="false" />
+          <Property Name="Purchesdate" Type="date" Nullable="false" />
+          <Property Name="Mdate" Type="date" Nullable="false" />
+          <Property Name="Expdate" Type="date" Nullable="false" />
+          <Property Name="Purchaseprice" Type="int" Nullable="false" />
+          <Property Name="Minimumprice" Type="int" Nullable="false" />
+          <Property Name="Sallingprice" Type="int" Nullable="false" />
+          <Property Name="Dicount" Type="int" Nullable="false" />
+          <Property Name="Imag" Type="image" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Itemcategory" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Table_add_new_user">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Role" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Firstname" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="Lastname" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gender" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Phonenumber" Type="int" Nullable="false" />
+          <Property Name="Emailid" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nic" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="Date of birth" Type="date" Nullable="false" />
+          <Property Name="Joindate" Type="date" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Imege" Type="image" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Table_Invoice">
+          <Key>
+            <PropertyRef Name="InvNo" />
+          </Key>
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProductPrice" Type="money" />
+          <Property Name="Qty" Type="int" />
+          <Property Name="Amount" Type="int" />
+          <Property Name="InvNo" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Table_Login">
+          <Key>
+            <PropertyRef Name="User_ID" />
+          </Key>
+          <Property Name="User_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="PIMS_DBModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_add_new_medchin" EntityType="Self.Table_add_new_medchin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_add_new_user" EntityType="Self.Table_add_new_user" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Invoice" EntityType="Self.Table_Invoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Login" EntityType="Self.Table_Login" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PIMS_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Table_add_new_medchin">
+          <Key>
+            <PropertyRef Name="Itemcode" />
+          </Key>
+          <Property Name="Itemname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Itemcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Itemsize" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Itembrand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Itamsupplier" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Itembarcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="others" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Itemquantity" Type="Int32" Nullable="false" />
+          <Property Name="Totalquantity" Type="Int32" Nullable="false" />
+          <Property Name="Purchesdate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Mdate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Expdate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Purchaseprice" Type="Int32" Nullable="false" />
+          <Property Name="Minimumprice" Type="Int32" Nullable="false" />
+          <Property Name="Sallingprice" Type="Int32" Nullable="false" />
+          <Property Name="Dicount" Type="Int32" Nullable="false" />
+          <Property Name="Imag" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Itemcategory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Table_add_new_user">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Firstname" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Lastname" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Phonenumber" Type="Int32" Nullable="false" />
+          <Property Name="Emailid" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Nic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Date_of_birth" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Joindate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Imege" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Table_Invoice">
+          <Key>
+            <PropertyRef Name="InvNo" />
+          </Key>
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProductPrice" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Qty" Type="Int32" />
+          <Property Name="Amount" Type="Int32" />
+          <Property Name="InvNo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Table_Login">
+          <Key>
+            <PropertyRef Name="User_ID" />
+          </Key>
+          <Property Name="User_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="PIMS_DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Table_add_new_medchin" EntityType="Self.Table_add_new_medchin" />
+          <EntitySet Name="Table_add_new_user" EntityType="Self.Table_add_new_user" />
+          <EntitySet Name="Table_Invoice" EntityType="Self.Table_Invoice" />
+          <EntitySet Name="Table_Login" EntityType="Self.Table_Login" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PIMS_DBModelStoreContainer" CdmEntityContainer="PIMS_DBEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="PIMS_DBModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_add_new_medchin">
+            <EntityTypeMapping TypeName="PIMS_DBModel.Table_add_new_medchin">
+              <MappingFragment StoreEntitySet="Table_add_new_medchin">
+                <ScalarProperty Name="Itemname" ColumnName="Itemname" />
+                <ScalarProperty Name="Itemcode" ColumnName="Itemcode" />
+                <ScalarProperty Name="Itemsize" ColumnName="Itemsize" />
+                <ScalarProperty Name="Itembrand" ColumnName="Itembrand" />
+                <ScalarProperty Name="Itamsupplier" ColumnName="Itamsupplier" />
+                <ScalarProperty Name="Itembarcode" ColumnName="Itembarcode" />
+                <ScalarProperty Name="others" ColumnName="others" />
+                <ScalarProperty Name="Itemquantity" ColumnName="Itemquantity" />
+                <ScalarProperty Name="Totalquantity" ColumnName="Totalquantity" />
+                <ScalarProperty Name="Purchesdate" ColumnName="Purchesdate" />
+                <ScalarProperty Name="Mdate" ColumnName="Mdate" />
+                <ScalarProperty Name="Expdate" ColumnName="Expdate" />
+                <ScalarProperty Name="Purchaseprice" ColumnName="Purchaseprice" />
+                <ScalarProperty Name="Minimumprice" ColumnName="Minimumprice" />
+                <ScalarProperty Name="Sallingprice" ColumnName="Sallingprice" />
+                <ScalarProperty Name="Dicount" ColumnName="Dicount" />
+                <ScalarProperty Name="Imag" ColumnName="Imag" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Itemcategory" ColumnName="Itemcategory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_add_new_user">
+            <EntityTypeMapping TypeName="PIMS_DBModel.Table_add_new_user">
+              <MappingFragment StoreEntitySet="Table_add_new_user">
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Phonenumber" ColumnName="Phonenumber" />
+                <ScalarProperty Name="Emailid" ColumnName="Emailid" />
+                <ScalarProperty Name="Nic" ColumnName="Nic" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Date_of_birth" ColumnName="Date of birth" />
+                <ScalarProperty Name="Joindate" ColumnName="Joindate" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Imege" ColumnName="Imege" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Invoice">
+            <EntityTypeMapping TypeName="PIMS_DBModel.Table_Invoice">
+              <MappingFragment StoreEntitySet="Table_Invoice">
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="InvNo" ColumnName="InvNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Login">
+            <EntityTypeMapping TypeName="PIMS_DBModel.Table_Login">
+              <MappingFragment StoreEntitySet="Table_Login">
+                <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
